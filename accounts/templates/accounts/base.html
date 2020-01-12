@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'accounts/bootstrap/css/bootstrap.min.css' %}">
+
+    <title>{% block title %}
+        Ubique
+        {% endblock title %}
+    </title>
+</head>
+
+<body>
+    {% block body %}
+    {% endblock body %}
+    <script src="{% static 'accounts/bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'accounts/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'accounts/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'accounts/script.js' %}"></script>
+</body>
+
+</html>

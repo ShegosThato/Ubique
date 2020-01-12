@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}
+Accounts - Ubique
+{% endblock title %}
+{% block body %}
+{% load static %}
+<div class="container mt-2 mb-5 text-center">
+    <a href="{% url 'ubi:index' %}" class="display-3 text-decoration-none">Ubique</a>
+    <span class="text-muted">detail</span>
+</div>
+<div class="container shadow-lg p-3 mt-2 mb-5 bg-white rounded">
+    <div class="row">
+        <div class="col-3">
+            <img src="{%static 'accounts/person_banner.jpg'%}" class="rounded mx-auto d-block img-thumbnail"
+                alt="{{person.first_name}}-img">
+            <h1 id="name-heading">{{ person.first_name }} {{ person.last_name }}</h1>
+            <h3 id="name-heading">{{ person.id_num }}</h3>
+        </div>
+        <div class="col-9">
+            <form>
+                <div class="form-row mt-2">
+                    <label for="first-name" class="col-md-2 col-form-label">First Name</label>
+                    <div class="col-md-10">
+                        <input type="text" id="first-name" class="form-control" placeholder="{{person.first_name}}"
+                            readonly>
+                    </div>
+
+                </div>
+                <div class="form-row mt-2">
+                    <label for="middle-name" class="col-md-2 col-form-label">Middle Name</label>
+                    <div class="col-md-10">
+                        <input type="text" id="middle-name" class="form-control" placeholder="{{person.middle_name}}"
+                            readonly>
+                    </div>
+
+                </div>
+                <div class="form-row mt-2">
+                    <label for="last-name" class="col-md-2 col-form-label">Last Name</label>
+                    <div class="col-md-10">
+                        <input type="text" id="last-name" class="form-control" placeholder="{{person.last_name}}"
+                            readonly>
+                    </div>
+
+                </div>
+                <div class="form-row mt-2">
+                    <label for="id-num" class="col-md-2 col-form-label">ID No.</label>
+                    <div class="col-md-10">
+                        <input type="text" id="id-num" class="form-control" placeholder="{{person.id_num}}" readonly>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+<div class="container shadow-lg p-3 mt-5 mb-1 bg-white rounded fixed-bottom">
+    <div class="row " id="btn-footer">
+        <div class="col">
+            <a href="#" class="rounded-pill btn btn-primary btn-block">Edit</a>
+        </div>
+        <div class="col">
+            <a href="#" class="rounded-pill btn btn-danger btn-block">Remove</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}

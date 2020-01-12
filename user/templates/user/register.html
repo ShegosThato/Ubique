@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+Register User
+{% endblock title %}
+{% block body %}
+<div class="container bg-gray">
+    <div class="jumbotron text-center">
+        <a href="{% url 'ubi:index'%}" class="display-3 text-decoration-none">Ubique</a>
+        <span class="text-muted">Register</span>
+    </div>
+</div>
+
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+    <p class="display-4 mb-2">Register</p>
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary rounded-pill" type="submit">Register</button>
+    </form>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,3 @@
+function removePerson() {
+    alert("just");
+}
