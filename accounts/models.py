@@ -3,11 +3,6 @@ from django.urls import reverse
 from uuid import uuid4
 from django.conf import settings as set
 
-
-def person_directory_with_uuid(instance, filename):
-    return '{}/{}'.format(instance.id_num, uuid4())
-
-
 class Person(models.Model):
     first_name = models.CharField(max_length=50)
     middle_name = models.CharField(max_length=50)
@@ -15,6 +10,7 @@ class Person(models.Model):
     born = models.DateField()
     died = models.DateField(null=True, blank=True)
     id_num = models.PositiveIntegerField(primary_key=True)
+    pic = models.ImageField(upload_to='images/')
     house_num = models.PositiveSmallIntegerField()
     street_name = models.CharField(max_length=50)
     town = models.CharField(max_length=50)
@@ -23,14 +19,13 @@ class Person(models.Model):
     zip_code = models.PositiveSmallIntegerField()
     
 
-    class Meta:
-        ordering = (
-            'last_name', 'first_name', 'id_num'
-        )
-    
+    """
     def __str__(self):
         return '{0} {1} ID No: {2}'.format(self.first_name, self.last_name, self.id_num)
-    
+    """
+    def __str__(self):
+        return self.id_num
+
     def get_absolute_url(self):
         return reverse("ubi:index")
     

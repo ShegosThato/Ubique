@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Person
 from . import forms
 
-@login_required
 def accounts(request, person_id):
     template = 'accounts.html'
     person = get_object_or_404(Person,pk=person_id)
@@ -17,7 +16,7 @@ def add(request):
     template = 'index.html'
     #post
     if request.method == 'POST':
-        addform = forms.PersonForm(request.POST)
+        addform = forms.PersonForm(request.POST, request.FILES)
         #validate form
         if addform.is_valid():
             addform.cleaned_data['first_name']
@@ -30,7 +29,7 @@ def add(request):
             addform.cleaned_data['city']
             addform.cleaned_data['province']
             addform.cleaned_data['zip_code']
-            addform.cleaned_data['id_pic']
+            addform.cleaned_data['pic']
             addform.save()
     #get
     addform = forms.PersonForm()
@@ -47,6 +46,7 @@ def search_by_id(request, id_num):
     return render(request, template, ctxt)
 
 def index(request):
+    user = request.user
     template = 'index.html'
     addform = forms.PersonForm()
     peeps = Person.objects.all()

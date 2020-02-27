@@ -128,8 +128,9 @@ STATIC_DIRS = [
     
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '...media/'),
-MEDIA_URL = 'uploaded/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media'),
+
 
 LOGIN_REDIRECT_URL = 'ubi:index'
 LOGOUT_REDIRECT_URL = 'ubi:index'
